@@ -70,7 +70,10 @@ function App() {
 
   const jogar = () => {
     setTimeout(() => {
-      if ( inimigos.filter( (inimgo) => inimgo.x > 900 ).length === inimigos.length ) {
+      if ( 
+        (inimigos.filter( (inimgo) => inimgo.x > 900 ).length === inimigos.length) || 
+        (inimigos.filter( (inimgo) => inimgo.vida <= 0 ).length === inimigos.length) 
+        ) {
         setVida( vida - inimigos.filter( (inimigo) => inimigo.vida > 0 ).length )
         setInimigos( gerarInimigos(rodada) )
         setRodada( rodada + 1 )
